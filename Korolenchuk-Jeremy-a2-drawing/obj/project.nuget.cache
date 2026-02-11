@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pPmsDquuGOg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jkoro\\source\\repos\\Korolenchuk-Jeremy-a2-drawing\\Korolenchuk-Jeremy-a2-drawing.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jkoro\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
