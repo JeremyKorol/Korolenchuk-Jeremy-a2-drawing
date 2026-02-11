@@ -27,6 +27,31 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            void DrawHand(float x, float y)
+            {
+				//hand
+				Draw.FillColor = Color.White;
+				Draw.LineColor = Color.Black;
+				//thumb
+				Draw.Capsule(x + 140, y + 140, x + 60, y + 140, 25);
+				Draw.Capsule(x + 60, y + 140, x + 80, y + 70, 25);
+
+				//fingers
+				for (int count = 0; count < 3; count += 1)
+				{
+					Draw.Capsule(x + 125 - (35 * count), y + 20, x + 150 - (35 * count), y + 30, 20);
+				}
+				Draw.Capsule(x, y, x + 90, y + 80, 20);
+
+				//arm
+				Draw.FillColor = Color.Black;
+				Draw.Capsule(x + 180, y + 120, x + 600, y + 520, 25);
+
+				//palm
+				Draw.FillColor = Color.White;
+				Draw.Circle(x + 140, y + 85, 75);
+			}
+
             Window.ClearBackground(Color.LightGray);
             Draw.FillColor = Color.DarkGray;
             Draw.LineColor = Color.Black;
@@ -34,30 +59,10 @@ namespace MohawkGame2D
 
             if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
             {
-                Draw.LineColor = Color.Black;
-                Draw.FillColor = Color.Red;
-                Draw.Ellipse(200, 200, 200, 150);
-
-				//hand
-				Draw.FillColor = Color.White;
 				Draw.LineColor = Color.Black;
-				//thumb
-				Draw.Capsule(340, 340, 260, 340, 25);
-				Draw.Capsule(260, 340, 280, 270, 25);
-
-				//fingers
-				Draw.Capsule(315, 210, 350, 230, 20);
-				Draw.Capsule(280, 210, 330, 240, 20);
-				Draw.Capsule(250, 220, 310, 260, 20);
-				Draw.Capsule(200, 200, 290, 280, 20);
-
-				//arm
-				Draw.FillColor = Color.Black;
-				Draw.Capsule(380, 320, 800, 720, 25);
-
-				//palm
-				Draw.FillColor = Color.White;
-				Draw.Circle(340, 285, 75);
+				Draw.FillColor = Color.Red;
+				Draw.Ellipse(200, 200, 200, 150);
+				DrawHand(200, 200);
 			}
 
             else
@@ -70,27 +75,8 @@ namespace MohawkGame2D
                 Draw.LineColor = Color.Black;
 			    Draw.Ellipse(200, 150, 200, 150);
 
-			    //hand
-			    Draw.FillColor = Color.White;
-                Draw.LineColor = Color.Black;
-			    //thumb
-                Draw.Capsule(Input.GetMouseX() + 140, Input.GetMouseY() + 140, Input.GetMouseX() + 60, Input.GetMouseY() + 140, 25);
-			    Draw.Capsule(Input.GetMouseX() + 60, Input.GetMouseY() + 140, Input.GetMouseX() + 80, Input.GetMouseY() + 70, 25);
-			
-                //fingers
-                Draw.Capsule(Input.GetMouseX() + 115, Input.GetMouseY() + 10, Input.GetMouseX() + 150, Input.GetMouseY() + 30, 20);
-			    Draw.Capsule(Input.GetMouseX() + 80, Input.GetMouseY() + 10, Input.GetMouseX() + 130, Input.GetMouseY() + 40, 20);
-			    Draw.Capsule(Input.GetMouseX() + 50, Input.GetMouseY() + 20, Input.GetMouseX() + 110, Input.GetMouseY() + 60, 20);
-			    Draw.Capsule(Input.GetMouseX(), Input.GetMouseY(), Input.GetMouseX() + 90, Input.GetMouseY() + 80, 20);
-			
-                //arm
-                Draw.FillColor = Color.Black;
-                Draw.Capsule(Input.GetMouseX() + 180, Input.GetMouseY() + 120, Input.GetMouseX() + 600, Input.GetMouseY() + 520, 25);
-			
-                //palm
-                Draw.FillColor = Color.White;
-                Draw.Circle(Input.GetMouseX() + 140, Input.GetMouseY() + 85, 75);
-            }
+				DrawHand(Input.GetMouseX(), Input.GetMouseY());
+			}
 		}
     }
 
